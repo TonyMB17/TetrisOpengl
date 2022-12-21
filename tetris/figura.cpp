@@ -3,6 +3,9 @@
 figura::figura(unsigned short num)
 {
 	id = num;
+	rotacion = 1;
+	pos_x = 0;
+	pos_y = 330;
 
 	switch (id)
 	{
@@ -52,10 +55,7 @@ figura::figura(unsigned short num)
 
 void figura::actualizar()
 {
-	for (int i = 0; i < 4; i++)
-	{
-		cuadrados[i].actualizar();
-	}
+	pos_y -= 30;
 }
 
 void figura::dibujar()
@@ -88,8 +88,35 @@ void figura::dibujar()
 		break;
 	}
 
+	glPushMatrix();
+	glTranslatef(pos_x, pos_y, 0);
+
 	for (int i = 0; i < 4; i++)
 	{
 		cuadrados[i].dibujar();
 	}
+
+	glPopMatrix();
+}
+
+void figura::set_x(double x)
+{
+	pos_x += x;
+}
+
+void figura::set_y(double y)
+{
+	pos_y += y;
+}
+
+void figura::rotar()
+{
+	rotacion++;
+	if (rotacion > 4) rotacion = 1;
+
+	for (int i = 0; i < 4; i++)
+	{
+		cuadrados[i].set_rotacion(rotacion);
+	}
+
 }

@@ -21,5 +21,5 @@ public:
 private:
 	static int w, h;
 	static float fps;
-	static figura ele;
+	static figura pieza;
 };

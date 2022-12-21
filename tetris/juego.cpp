@@ -2,7 +2,7 @@
 
 int juego::w = 800, juego::h = 600;
 float juego::fps = 60.f;
-figura juego::ele(6);
+figura juego::pieza(1);
 
 juego::juego()
 {
@@ -26,7 +26,7 @@ juego::juego()
 
 void juego::iniciar()
 {
-	glClearColor(0, 0, 0, 1);
+	glClearColor(0.0, 0.0, 1.0, 0.0);
 
 
 	glMatrixMode(GL_PROJECTION);
@@ -45,14 +45,29 @@ void juego::dibujar()
 	glPushMatrix();
 	glTranslatef(400, 300, 0);
 	dibujar_tablero();
-	ele.dibujar();
+	pieza.dibujar();
 	glPopMatrix();
 	glutSwapBuffers();
 }
 
 void juego::preocesar_teclado(unsigned char c, int x, int y)
 {
+	switch (c)
+	{
+	case 'A': case 'a':
+		pieza.set_x(-30);
+		break;
+	case 'D': case 'd':
+		pieza.set_x(30);
+		break;
 
+	case 'S': case 's':
+		pieza.set_y(-30);
+		break;
+	case ' ':
+		pieza.rotar();
+		break;
+	}
 }
 
 void juego::actualizar()
@@ -64,7 +79,7 @@ void juego::actualizar()
 		if (glutGet(GLUT_ELAPSED_TIME) > actualizar_cuadrado + 1000.f)
 		{
 			actualizar_cuadrado = glutGet(GLUT_ELAPSED_TIME);
-			ele.actualizar();
+			pieza.actualizar();
 
 		}
 		tiempo_transcurrido = glutGet(GLUT_ELAPSED_TIME);
@@ -79,7 +94,7 @@ void juego::dibujar_tablero()
 	glPushMatrix();
 
 	glTranslatef(-150, 300, 0);
-	glColor3f(1, 1, 1);
+	glColor3f(0, 0, 0);
 
 	glBegin(GL_QUAD_STRIP);
 
