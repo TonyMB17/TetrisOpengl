@@ -3,6 +3,8 @@
 #include "GL\glut.h"
 #include "figura.h"
 #include <iostream>
+#include <list>
+#include <ctime>
 
 using namespace std;
 
@@ -15,6 +17,7 @@ public:
 	static void actualizar();
 	static void iniciar();
 	static void dibujar_tablero();
+	static void dibujar_cadrados();
 
 
 
@@ -22,4 +25,5 @@ private:
 	static int w, h;
 	static float fps;
 	static figura pieza;
+	static list<cuadrado> cuadrados;
 };

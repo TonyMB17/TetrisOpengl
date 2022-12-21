@@ -26,10 +26,10 @@ void cuadrado::dibujar()
 	glTranslatef(pos_x, pos_y, 0);
 	//glColor3f(0, 0, 1);
 	glBegin(GL_QUAD_STRIP);
-	glVertex2f(0, 0);
-	glVertex2f(30, 0);
-	glVertex2f(0, 30);
-	glVertex2f(30, 30);
+	glVertex2f(-15, -15);
+	glVertex2f(15, -15);
+	glVertex2f(-15, 15);
+	glVertex2f(15, 15);
 	glEnd();
 	glPopMatrix();
 }

@@ -4,8 +4,8 @@ figura::figura(unsigned short num)
 {
 	id = num;
 	rotacion = 1;
-	pos_x = 0;
-	pos_y = 330;
+	pos_x = 15;
+	pos_y = 345;
 
 	switch (id)
 	{
@@ -53,9 +53,21 @@ figura::figura(unsigned short num)
 	}
 }
 
-void figura::actualizar()
+bool figura::actualizar()
 {
-	pos_y -= 30;
+	bool colisiono = false;
+
+		if (pos_y > -280)
+		{
+			pos_y -= 30;
+		}
+		else
+		{
+			colisiono = true;
+		}
+	
+
+	return colisiono;
 }
 
 void figura::dibujar()
@@ -106,7 +118,10 @@ void figura::set_x(double x)
 
 void figura::set_y(double y)
 {
-	pos_y += y;
+	if (pos_y > -285)
+	{
+		pos_y += y;
+	}
 }
 
 void figura::rotar()

@@ -2,10 +2,14 @@
 
 int juego::w = 800, juego::h = 600;
 float juego::fps = 60.f;
-figura juego::pieza(1);
+figura juego::pieza(rand() % 6 + 1);
+list<cuadrado> juego::cuadrados;
 
 juego::juego()
 {
+	srand(time(NULL));
+	pieza = figura(rand() % 6 + 1);
+
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
 
 	glutInitWindowPosition(50, 50);
@@ -46,6 +50,7 @@ void juego::dibujar()
 	glTranslatef(400, 300, 0);
 	dibujar_tablero();
 	pieza.dibujar();
+	dibujar_cadrados();
 	glPopMatrix();
 	glutSwapBuffers();
 }
@@ -79,7 +84,14 @@ void juego::actualizar()
 		if (glutGet(GLUT_ELAPSED_TIME) > actualizar_cuadrado + 1000.f)
 		{
 			actualizar_cuadrado = glutGet(GLUT_ELAPSED_TIME);
-			pieza.actualizar();
+			if (pieza.actualizar())
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					cuadrados.push_back(cuadrado(pieza.get_x(i), pieza.get_y(i)));
+				}
+				pieza = figura(rand() % 6 + 1);
+			}
 
 		}
 		tiempo_transcurrido = glutGet(GLUT_ELAPSED_TIME);
@@ -106,4 +118,15 @@ void juego::dibujar_tablero()
 	glEnd();
 
 	glPopMatrix();
+}
+
+void juego::dibujar_cadrados()
+{
+	glColor3f(1, 1, 1);
+	list<cuadrado>::iterator p = cuadrados.begin();
+	while (p != cuadrados.end())
+	{
+		p->dibujar();
+		p++;
+	}
 }
