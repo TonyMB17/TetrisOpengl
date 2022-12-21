@@ -1,11 +1,6 @@
 ﻿  cuadrado.cpp
-C:\Users\Yenni\source\repos\TetrisOpengl\tetris\cuadrado.cpp(12,22): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\Yenni\source\repos\TetrisOpengl\tetris\cuadrado.cpp(12,15): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\JIMMPC\source\repos\TonyMB17\TetrisOpengl\tetris\cuadrado.cpp(12,22): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\JIMMPC\source\repos\TonyMB17\TetrisOpengl\tetris\cuadrado.cpp(12,15): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
   figura.cpp
-  juego.cpp
-C:\Users\Yenni\source\repos\TetrisOpengl\tetris\juego.cpp(66,33): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Yenni\source\repos\TetrisOpengl\tetris\juego.cpp(70,32): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-  main.cpp
   Generando código...
-  LINK : no se encontró C:\Users\Yenni\source\repos\TetrisOpengl\x64\Debug\tetris.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
-  tetris.vcxproj -> C:\Users\Yenni\source\repos\TetrisOpengl\x64\Debug\tetris.exe
+  tetris.vcxproj -> C:\Users\JIMMPC\source\repos\TonyMB17\TetrisOpengl\x64\Debug\tetris.exe
