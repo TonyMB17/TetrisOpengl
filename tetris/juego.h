@@ -18,6 +18,7 @@ public:
 	static void iniciar();
 	static void dibujar_tablero();
 	static void dibujar_cadrados();
+	static void chequear_colision();
 
 
 

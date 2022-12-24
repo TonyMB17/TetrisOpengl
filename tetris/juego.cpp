@@ -134,3 +134,8 @@ void juego::dibujar_cadrados()
 		p++;
 	}
 }
+void juego::chequear_colision()
+{
+
+
+}
