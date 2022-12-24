@@ -17,6 +17,8 @@ public:
 	double get_y(unsigned short num) { return cuadrados[num].get_y() + pos_y; }
 	void rotar();
 	double get_angulo_cuadradito(unsigned short int);
+	double calcular_posicion_x(unsigned short num); //Cuadradito
+	double calcular_posicion_y(unsigned short num); //Cuadradito
 	float rad2deg(float radianes) { return radianes * 180 / 3.14;}
 
 

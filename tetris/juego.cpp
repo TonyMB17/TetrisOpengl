@@ -71,7 +71,10 @@ void juego::preocesar_teclado(unsigned char c, int x, int y)
 		break;
 	case ' ':
 		pieza.rotar();
-		pieza.get_angulo_cuadradito(1);
+		for (int i = 0; i < 4; i++)
+		{
+			cout << pieza.calcular_posicion_x(1) << endl;
+		}
 		break;
 	}
 }
