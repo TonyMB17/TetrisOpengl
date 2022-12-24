@@ -87,6 +87,7 @@ void juego::actualizar()
 	{
 		if (glutGet(GLUT_ELAPSED_TIME) > actualizar_cuadrado + 1000.f)
 		{
+			chequear_colision();
 			actualizar_cuadrado = glutGet(GLUT_ELAPSED_TIME);
 			if (pieza.actualizar())
 			{
@@ -136,6 +137,29 @@ void juego::dibujar_cadrados()
 }
 void juego::chequear_colision()
 {
-
+	list<cuadrado>::iterator p = cuadrados.begin();
+	while (p != cuadrados.end())
+	{
+		bool hubo_colision = false;
+		for (int i = 0; i < 4; i++)
+		{
+			if (abs(p->get_y() - ((int)pieza.calcular_posicion_y(i) - 30)) < 15)
+			{
+				if (abs(p->get_x() - (int)pieza.calcular_posicion_x(i)) < 5) 
+				{
+					hubo_colision = true;
+				}
+			}
+		}
+		if (hubo_colision) 
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				cuadrados.push_back(cuadrado(pieza.calcular_posicion_x(i), pieza.calcular_posicion_y(i)));
+			}
+			pieza = figura(rand() % 6 + 1);
+		}
+		p++;
+	}
 
 }

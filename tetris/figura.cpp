@@ -56,16 +56,21 @@ figura::figura(unsigned short num)
 bool figura::actualizar()
 {
 	bool colisiono = false;
-
-		if (pos_y > -280)
+	for (int i = 0;i < 4; i++)
+	{
+		if ((int)calcular_posicion_y(i) > -280) 
 		{
-			pos_y -= 30;
+
 		}
 		else
 		{
 			colisiono = true;
 		}
-	
+	}
+	if (!colisiono)
+	{
+		pos_y -= 30;
+	}
 
 	return colisiono;
 }
