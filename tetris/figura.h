@@ -20,6 +20,8 @@ public:
 	double calcular_posicion_x(unsigned short num); //Cuadradito
 	double calcular_posicion_y(unsigned short num); //Cuadradito
 	float rad2deg(float radianes) { return radianes * 180 / 3.14;}
+	float deg2rad(float grados) { return grados * 3.14 / 180; }
+
 
 
 private:

@@ -92,7 +92,7 @@ void juego::actualizar()
 			{
 				for (int i = 0; i < 4; i++)
 				{
-					cuadrados.push_back(cuadrado(pieza.get_x(i), pieza.get_y(i)));
+					cuadrados.push_back(cuadrado(pieza.calcular_posicion_x(i), pieza.calcular_posicion_y(i)));
 				}
 				pieza = figura(rand() % 6 + 1);
 			}
