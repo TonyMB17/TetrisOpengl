@@ -139,7 +139,7 @@ void figura::rotar()
 double figura::get_angulo_cuadradito(unsigned short num) {
 	double angulo_cuadrado = atan2f(cuadrados[num].get_x(), cuadrados[num].get_y());
 
-	cout << angulo_cuadrado << endl;
+	cout << rad2deg(angulo_cuadrado) << endl;
 
 	double rotacion_local = (rotacion - 1) * 90;
 
