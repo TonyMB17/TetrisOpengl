@@ -148,17 +148,9 @@ double figura::get_angulo_cuadradito(unsigned short num) {
 double figura::calcular_posicion_x(unsigned short num)
 {
 	double hipotenusa;
-	hipotenusa = sqrt(pow((cuadrados[num].get_x()), 2) + pow((cuadrados[num].get_y()), 2));
 
-	//cout << hipotenusa << endl;
+	hipotenusa = sqrt(pow((cuadrados[num].get_x()), 2)) + sqrt(pow((cuadrados[num].get_y()), 2));
+	
 	return cos(get_angulo_cuadradito(num)) * hipotenusa + pos_x;
 }
 
-/*double figura::calcular_posicion_y(unsigned short num)
-{
-	double hipotenusa;
-	hipotenusa = sqrt(pow((cuadrados[num].get_x()), 2) + pow((cuadrados[num].get_y()), 2));
-
-	//cout << hipotenusa << endl;
-	return sin(get_angulo_cuadradito(num)) * hipotenusa + pos_y;
-}*/
