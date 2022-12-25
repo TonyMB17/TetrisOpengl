@@ -1,4 +1,4 @@
-#include "GL\glut.h"
+6#include "GL\glut.h"
 #include "juego.h"
 
 int main(int argc, char* args[])
