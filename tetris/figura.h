@@ -19,16 +19,13 @@ public:
 	double get_angulo_cuadradito(unsigned short int);
 	double calcular_posicion_x(unsigned short num); //Cuadradito
 	double calcular_posicion_y(unsigned short num); //Cuadradito
-	float rad2deg(float radianes) { return radianes * 180 / 3.14;}
+	float rad2deg(float radianes) { return radianes * 180 / 3.14; }
 	float deg2rad(float grados) { return grados * 3.14 / 180; }
-
-
 
 private:
 	cuadrado cuadrados[4];
 	unsigned short id;
-	unsigned short rotacion; 
+	unsigned short rotacion;
 	double pos_x;
 	double pos_y;
 };
-

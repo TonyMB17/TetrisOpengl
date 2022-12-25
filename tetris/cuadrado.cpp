@@ -9,7 +9,6 @@ cuadrado::cuadrado()
 void cuadrado::dibujar()
 {
 	glPushMatrix();
-
 	switch (rotacion)
 	{
 	case 2:
@@ -22,9 +21,7 @@ void cuadrado::dibujar()
 		glRotatef(270, 0, 0, 1);
 		break;
 	}
-
 	glTranslatef(pos_x, pos_y, 0);
-	//glColor3f(0, 0, 1);
 	glBegin(GL_QUAD_STRIP);
 	glVertex2f(-15, -15);
 	glVertex2f(15, -15);

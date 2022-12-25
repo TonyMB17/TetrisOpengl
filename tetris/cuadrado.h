@@ -1,6 +1,5 @@
 #pragma once
 #include "GL/glut.h"
-
 class cuadrado
 {
 public:
