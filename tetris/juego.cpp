@@ -2,6 +2,7 @@
 
 int juego::w = 800, juego::h = 600;
 float juego::fps = 60.f;
+float juego::tiempo_actualizar = 1000.f;
 figura juego::pieza(rand() % 6 + 1);
 list<cuadrado> juego::cuadrados;
 
@@ -83,9 +84,10 @@ void juego::actualizar()
 {
 	static float tiempo_transcurrido = 0;
 	static float actualizar_cuadrado = 0;
+	
 	if (glutGet(GLUT_ELAPSED_TIME) > tiempo_transcurrido + 1.f / fps)
 	{
-		if (glutGet(GLUT_ELAPSED_TIME) > actualizar_cuadrado + 1000.f)
+		if (glutGet(GLUT_ELAPSED_TIME) > actualizar_cuadrado +  tiempo_actualizar)
 		{
 			chequear_colision();
 			actualizar_cuadrado = glutGet(GLUT_ELAPSED_TIME);
@@ -100,6 +102,7 @@ void juego::actualizar()
 
 		}
 		tiempo_transcurrido = glutGet(GLUT_ELAPSED_TIME);
+		static float tiempo_actualizar = 1000;
 		glutPostRedisplay();
 	}
 
@@ -157,9 +160,30 @@ void juego::chequear_colision()
 			{
 				cuadrados.push_back(cuadrado(pieza.calcular_posicion_x(i), pieza.calcular_posicion_y(i)));
 			}
+			chequear_lineas();
 			pieza = figura(rand() % 6 + 1);
 		}
 		p++;
 	}
 
+}
+void juego::chequear_lineas()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		int contar_cuadraditos = 0;
+		list<cuadrado>::iterator p = cuadrados.begin();
+		while (p != cuadrados.end())
+		{
+			if (abs((int)pieza.calcular_posicion_y(i) - p->get_x()) < 15)
+			{
+				contar_cuadraditos++;
+			}
+			p++;
+		}
+		if (contar_cuadraditos == 10)
+		{
+			system("PAUSE");
+		}
+	}
 }

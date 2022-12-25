@@ -19,12 +19,14 @@ public:
 	static void dibujar_tablero();
 	static void dibujar_cadrados();
 	static void chequear_colision();
+	static void chequear_lineas();
 
 
 
 private:
 	static int w, h;
 	static float fps;
+	static float tiempo_actualizar;
 	static figura pieza;
 	static list<cuadrado> cuadrados;
 };
