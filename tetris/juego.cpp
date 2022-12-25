@@ -114,6 +114,7 @@ void juego::dibujar_cadrados()
 }
 void juego::chequear_colision()
 {
+	bool gameover = false;
 	list<cuadrado>::iterator p = cuadrados.begin();
 	while (p != cuadrados.end())
 	{
@@ -134,12 +135,20 @@ void juego::chequear_colision()
 			for (int i = 0; i < 4; i++)
 			{
 				cuadrados.push_back(cuadrado(pieza.calcular_posicion_x(i), pieza.calcular_posicion_y(i)));
+				if ((int)pieza.calcular_posicion_y(i) > 300)
+				{
+					gameover = true;
+				}
 			}
 			chequear_lineas();
 
 			pieza = figura(rand() % 6 + 1);
 		}
 		p++;
+	}
+	if (gameover)
+	{
+		exit(1);
 	}
 }
 void juego::chequear_lineas()
