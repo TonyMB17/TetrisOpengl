@@ -189,10 +189,14 @@ void juego::chequear_lineas()
 				if (abs((int)pieza.calcular_posicion_y(i) - p->get_y()) < 15)
 				{
 					p = cuadrados.erase(p);
-					system("PAUSE");
+					
 				}
 				else
 				{
+					if (p->get_y() > ((int)pieza.calcular_posicion_y(i)))
+					{
+						p->set_y(-30);
+					}
 					p++;
 				}
 				
